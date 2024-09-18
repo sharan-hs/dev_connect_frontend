@@ -141,7 +141,7 @@ const Feed = () => {
             </div>
           </div>
 
-          {sortedPosts.length === 0 ? (
+          {sortedPosts?.length === 0 ? (
             <h1 className="mt-24 text-2xl text-center">
               Follow other developers to see Feed Posts
             </h1>

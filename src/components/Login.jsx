@@ -57,34 +57,38 @@ const Login = () => {
         password: password,
       };
 
-      const loggedInUser = await dispatch(loginUser(userLogin));
+      try {
+        const loggedInUser = await dispatch(loginUser(userLogin));
 
-      if (loggedInUser.payload.message.includes("Incorrect")) {
-        toast.error("Incorrect email or password", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-        return;
-      } else {
-        setErrorMsg("");
-        dispatch(getUser(loggedInUser?.payload?.user));
-        toast.success("Login Successful", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-        navigate("/");
+        if (loggedInUser?.payload?.message?.includes("Incorrect")) {
+          toast.error("Incorrect email or password", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          return;
+        } else {
+          setErrorMsg("");
+          dispatch(getUser(loggedInUser?.payload?.user));
+          toast.success("Login Successful", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          navigate("/");
+        }
+      } catch (error) {
+        console.log(error);
       }
     }
   };

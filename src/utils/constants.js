@@ -1,4 +1,4 @@
-export const BACKEND_API_URL = "http://localhost:3001";
+export const BACKEND_API_URL = "https://dev-connect-backend.onrender.com";
 
 export const timeSince = (timestamp) => {
   let time = Date.parse(timestamp);
