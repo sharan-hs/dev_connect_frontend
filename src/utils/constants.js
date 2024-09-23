@@ -1,4 +1,4 @@
-export const BACKEND_API_URL = "https://dev-connect-backend.onrender.com";
+export const BACKEND_API_URL = "https://dev-connect-backend.vercel.app";
 
 export const timeSince = (timestamp) => {
   let time = Date.parse(timestamp);
