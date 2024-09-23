@@ -52,6 +52,16 @@ const Login = () => {
         return null;
       }
     } else {
+      toast.info("Logging in .......", {
+        position: "top-right",
+        autoClose: 10000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       const userLogin = {
         email: email,
         password: password,
